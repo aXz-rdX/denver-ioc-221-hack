@@ -21,13 +21,10 @@ if [ "$HACK_CLOUD" = "YES" ]; then
 fi
 
 # Wi-Fi Settings
-#if [ "$HACK_WIFI" = "YES" ]; then
-#    echo "[cls_server]" > cls.conf
-#    echo "ssid = $WIFI_SSID" >> cls.conf
-#    echo "passwd = $WIFI_PASSWORD" >> cls.conf
-#fi
-
-## Servers
+if [ "$HACK_WIFI" = "YES" ]; then
+    sed -i "s/ssid=\".*\"/ssid=\"$WIFI_SSID\"/" /mnt/config/wifi/wpa.conf
+    sed -i "s/psk=\".*\"/psk=\"$WIFI_PASSWORD\"/" /mnt/config/wifi/wpa.conf
+fi
 
 # Busybox httpd
 if [ "$HACK_HTTPD" = "YES" ]; then

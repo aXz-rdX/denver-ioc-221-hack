@@ -15,7 +15,6 @@ This hack is based on (https://github.com/dc35956/gk7102-hack)
 * Enable ONVIF Server
 * BusyBox FTP Server
 * dropbear SSH Server: root can login ssh without password
-* WebUI PTZ - (http://192.168.200.1:8080/cgi-bin/webui)
 * Wi-Fi configuration without cloud account
 
 ## Installation
@@ -31,7 +30,7 @@ This hack is based on (https://github.com/dc35956/gk7102-hack)
 The security of these devices is terrible.
 * DO NOT expose these cameras to the internet.
 * For this hack, config.txt is used to decide what servers you want to run.
-* This hack is blocking the communication with the cloud providers, see /media/hack/etc/hosts.
+* This hack is blocking the communication with the cloud providers.
 * DO NOT expose these cameras to the internet.
 
 
@@ -94,7 +93,6 @@ tcp        0      0 0.0.0.0:554             0.0.0.0:*               LISTEN      
 tcp        0      0 0.0.0.0:6668            0.0.0.0:*               LISTEN      177/camapp
 tcp        0      0 0.0.0.0:7101            0.0.0.0:*               LISTEN      177/camapp
 tcp        0      0 0.0.0.0:7103            0.0.0.0:*               LISTEN      177/camapp
-tcp        0      0 :::8080                 :::*                    LISTEN      172/busybox
 tcp        0      0 :::23                   :::*                    LISTEN      96/telnetd
 udp        0      0 192.168.2.224:46663     0.0.0.0:*                           177/camapp
 ```
@@ -156,7 +154,7 @@ VmallocChunk:     997204 kB
 
 ### /etc/passwd
 ```
-$ cat /etc/shadow
+[root@goke:~]# cat /etc/shadow
 root:$1$JYFTech$dt2mZnCIdoFSWAog1s.T41:10933:0:99999:7:::
 bin:*:10933:0:99999:7:::
 daemon:*:10933:0:99999:7:::
@@ -171,26 +169,3 @@ ftp:*:10933:0:99999:7:::
 nobody:*:10933:0:99999:7:::
 default::10933:0:99999:7:::
 ```
-
-
-## References
-
-* [V-Tac VT-5122: 1080P IP Indoor Camera EU Power Plug & Auto Track Function](https://www.v-tac.eu/products/smart-home/cameras/1080p-ip-indoor-camera-eu-power-plug-auto-track-function-detail.html)
-
-* [Hacks for ZS-GX1 IP Camera and various Goke GK7102 based IP Cameras](https://github.com/ant-thomas/zsgx1hacks)
-
-* [The BusyBox project](https://busybox.net/)
-
-* [ARM Binary andrew-d/static-binaries](https://github.com/andrew-d/static-binaries/tree/master/binaries/linux/arm)
-
-* [WiFi IP CloudCamer-ы: HIP291-1M/2M-AI, Digoo DG-W01F, Digoo DG-MYQ и другие на процессоре от GOKE: GK7102 (GK7102S)](https://4pda.ru/forum/index.php?showtopic=928641)
-
-* [GOKE HD IP CAMERA SOLUTION GK7101 GK7102](https://www.unifore.net/company-highlights/goke-hd-ip-camera-solution-gk7101-gk7102.html)
-
-* [Aliexpress: INQMEGA 1080P Cloud Wireless IP Camera Intelligent Auto Tracking](https://www.aliexpress.com/item/32796421899.html)
-
-* [threat9/routersploit - Exploitation Framework for Embedded Devices](https://github.com/threat9/routersploit)
-
-* [GK7102 Based IP Camera](https://gist.github.com/brianpow/d8eeaee0879b1fd46ccedfae04799f49)
-
-* [Read-only modular GOKE GK7102/GK7102S camera customizer](https://github.com/bolshevik/goke-GK7102-customizer)
