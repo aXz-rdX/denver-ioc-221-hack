@@ -10,8 +10,8 @@ WIFI_PASSWORD=your_wifi_password
 #####################################################################
 ## Servers
 
-# Busybox httpd for WebUI PTZ
-HACK_HTTPD=YES
+# Busybox httpd
+HACK_HTTPD=NO
 
 # SSH Server - user root with no password required
 HACK_SSH=YES
