@@ -2,4 +2,4 @@
 #
 echo "Content-type: image/jpeg"
 echo ""
-/home/busybox/wget http://localhost:554/snapshot -O -
+busybox wget http://localhost:554/snapshot -O -

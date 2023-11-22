@@ -68,12 +68,7 @@ setInterval(function() { document.getElementById("snapshot").src = "snapshot?t="
 </html>
 EOT
 
-if [ -f /home/HACKP ]; then
-ptzfolder="/home/hack"
-elif [ -f /home/HACKSD ]; then
 ptzfolder="/media/hack"
-fi
-
 
  if [ "$command" = "iron" ]; then
   gio -s 46 1 > /dev/null

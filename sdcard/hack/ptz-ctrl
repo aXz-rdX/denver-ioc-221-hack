@@ -1,11 +1,7 @@
 #!/bin/sh
 #
 
-if [ -f /home/HACKP ]; then
-ptzfolder="/home/hack"
-elif [ -f /home/HACKSD ]; then
 ptzfolder="/media/hack"
-fi
 
 if [ $1 = "u" ];
 then
