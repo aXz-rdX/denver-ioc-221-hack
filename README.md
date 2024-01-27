@@ -1,4 +1,4 @@
-# Hack for Denver Cloud IP Cameras
+# Hack for Denver Cloud IP Cameras (GK7102)
 
 This hack is based on (https://github.com/dc35956/gk7102-hack)
 

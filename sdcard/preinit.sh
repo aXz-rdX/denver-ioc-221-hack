@@ -17,17 +17,22 @@ if [ "$PERSISTENT" = "YES" ]; then
 
     #copy hash.sh to /mnt
     mkdir -p /mnt/hacksd
+    rm -R /mnt/hacksd/*
     cp -pf /media/hack.sh /mnt/hacksd
     cp -pf /media/config.txt /mnt/hacksd
     cp -pfr /media/hack /mnt/hacksd
 
-    #hook before start.sh
-    startscript="/mnt/config/start_denver.sh"
+    #hook before clearCached.sh
+    startscript="/mnt/config/clearCached_denver.sh"
     if [ ! -f "$startscript" ];then
-        cp -pf /mnt/config/start.sh $startscript
+        cp -pf /mnt/config/clearCached.sh $startscript
     fi
 
-    cp -f /media/hook.sh /mnt/config/start.sh
+    cp -f /media/hook.sh /mnt/config/clearCached.sh
+
+    #give default user right to edit this script if it fails
+    chmod 777 /mnt/config/clearCached.sh
+    chown 1000:default /mnt/config/clearCached.sh
 fi
 
 cd /opt/httpServer/lighttpd/htdocs/sd
