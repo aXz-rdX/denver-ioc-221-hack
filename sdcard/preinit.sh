@@ -37,8 +37,3 @@ fi
 
 cd /opt/httpServer/lighttpd/htdocs/sd
 ./hack.sh
-
-#run cam app like /mnt/config/start.sh did
-/mnt/app/camapp &
-
-sleep 1

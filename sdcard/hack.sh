@@ -3,10 +3,18 @@
 # include config
 . ./config.txt
 
-# mount copied config dir
+# sync time with gateway ntp server after 60 seconds and on network connect
+( sleep 60 && busybox ntpd -q -p `ip route show default | awk '/default/ {print $3}'` ) &
+mount --bind ./hack/if-up.d /etc/network/if-up.d
+
+# mount copied config dir to protect source folder
 mkdir -p /tmp/config
 cp -pfr /mnt/config/* /tmp/config
 mount --bind /tmp/config /mnt/config
+
+# mount source folder for debug access
+mkdir -p /tmp/src
+mount -t jffs2 /dev/mtdblock4 /tmp/src
 
 ## Mount /etc/ files from microSD card
 # env
@@ -15,6 +23,8 @@ mount --bind ./hack/etc/profile /etc/profile
 mount --bind ./hack/etc/group /etc/group
 mount --bind ./hack/etc/passwd /etc/passwd
 mount --bind ./hack/etc/shadow /etc/shadow
+
+
 # update hosts file to prevent communication
 if [ "$HACK_CLOUD" = "YES" ]; then
     mount --bind ./hack/etc/hosts /etc/hosts
@@ -53,5 +63,7 @@ fi
 #  cat "$f"
 #done
 
-# Sync time with gateway ntp server
-( sleep 20 && busybox ntpd -q -p `ip route show default | awk '/default/ {print $3}'` ) &
+#run cam app like /mnt/config/start.sh did
+/mnt/app/camapp &
+
+sleep 1

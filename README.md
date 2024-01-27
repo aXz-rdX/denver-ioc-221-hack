@@ -46,11 +46,6 @@ The security of these devices is terrible.
 ### RTSP Connection
 
 * rtsp://admin:@x.x.x.x:554/11
-* rtsp://admin:@192.168.200.1:554/0/av0 (with audio)
-* rtsp://admin:@192.168.200.1:554/0/av1 (low quality)
-* rtsp://admin:@192.168.200.1:8001
-* rtsp://admin:@192.168.200.1:8001/0/av0 (with audio)
-* rtsp://admin:@192.168.200.1:8001/0/av1 (low quality)
 
 ### ONVIF Connection
 
